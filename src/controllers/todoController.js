@@ -53,7 +53,7 @@ exports.updateTodoStatus = (req, res) => {
         status: req.body["status"],
         updatedDate: Date.now()
     }
-    TodoModel.updateOne({ _id: _id }, { $set: v }, { upsert: true }, (err, data) => {
+    TodoModel.updateOne({ _id: _id }, { $set: updatedTodo }, { upsert: true }, (err, data) => {
         if (err) {
             res.status(400).json({ status: "fail", data: err })
         }
